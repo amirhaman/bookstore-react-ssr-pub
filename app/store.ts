@@ -1,10 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-import dataReducer from '../src/features/Books/Books.Slice';
+import booksReducer from '../src/features/Books/Books.Slice';
+import shoppingCartReducer from '../src/features/ShoppingCart/ShoppingCart.Slice';
+
+import { combineReducers } from '@reduxjs/toolkit';
+
+const rootReducer = combineReducers({booksReducer: booksReducer, shoppingCartReducer: shoppingCartReducer});
 
 export const store = configureStore({
-  reducer: {
-    books: dataReducer,
-  }
+  reducer: rootReducer
 })
 
 export type AppDispatch = typeof store.dispatch

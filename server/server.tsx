@@ -8,7 +8,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import { Provider } from 'react-redux';
-import dataReducer from '../src/features/Books/Books.Slice';
+import booksReducer from '../src/features/Books/Books.Slice';
+import shoppingCartReducer from '../src/features/ShoppingCart/ShoppingCart.Slice';
+import { combineReducers } from '@reduxjs/toolkit';
 import createEmotionServer from '@emotion/server/create-instance';
 import createEmotionCache from '../src/styles/createEmotionCache';
 import { ThemeFactory } from '../src/styles/ThemeFactory/ThemeFacrory';
@@ -22,7 +24,8 @@ server.use('/static', express.static(path.join(__dirname, 'static')));
 server.get('/*', (req, res) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks, constructStyleTagsFromChunks } = createEmotionServer(cache);
-  const store: any = createStore(dataReducer);
+  const rootReducer = combineReducers({booksReducer: booksReducer, shoppingCartReducer: shoppingCartReducer});
+  const store: any = createStore(rootReducer);
 
   const html = ReactDOMServer.renderToString(
     <CacheProvider value={cache}>
