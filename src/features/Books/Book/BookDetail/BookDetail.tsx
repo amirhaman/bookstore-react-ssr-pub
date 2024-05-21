@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { BookType } from '../../../../types/@types.book';
-import { useAppSelector, useAppDispatch } from '../../../../../app/hooks';
-import { selectBooks } from '../../Books.Slice';
-import { setBooks } from '../../Books.Slice';
-import { useParams } from 'react-router-dom';
-import BookCard from '../BookCard/BookCard';
-import { booksData } from '../../../../data/books';
+import React, { useEffect, useState } from "react";
+import { BookType } from "../../../../types/@types.book";
+import { Grid } from "@mui/material";
+import { useAppSelector, useAppDispatch } from "../../../../../app/hooks";
+import { selectBooks } from "../../Books.Slice";
+import { setBooks } from "../../Books.Slice";
+import { useParams } from "react-router-dom";
+import BookCard from "../BookCard/BookCard";
+import { booksData } from "../../../../data/books";
 
 const BookDetail = () => {
   const books = useAppSelector(selectBooks);
@@ -25,10 +26,10 @@ const BookDetail = () => {
     }
   }, [books]);
 
-  return book ? (
-    <BookCard id={book.id} name={book.name} price={book.price} category={book.category} description={book.description} allowEdit={true} />
-  ) : (
-    <p>We couldn't find the book.</p>
+  return (
+    <Grid container className="w-full flex flex-col p-2">
+      {book ? <BookCard id={book.id} name={book.name} price={book.price} category={book.category} description={book.description} allowEdit={true} /> : <p>We couldn't find the book.</p>}
+    </Grid>
   );
 };
 

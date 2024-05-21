@@ -1,41 +1,40 @@
 import { createTheme } from "@mui/material/styles";
-
+import MuiTableCell from "./MuiTableCell";
 
 export const ThemeFactory = (props: any) =>
-
   createTheme({
     typography: {
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
       h1: {
-        fontSize: '3rem',
+        fontSize: "3rem",
       },
       h2: {
-        fontSize: '2.75rem',
+        fontSize: "2.75rem",
       },
       h3: {
-        fontSize: '2.5rem',
+        fontSize: "2.5rem",
       },
       h4: {
-        fontSize: '2.25rem',
+        fontSize: "2.25rem",
       },
       h5: {
-        fontSize: '2.0rem',
+        fontSize: "2.0rem",
       },
       h6: {
-        fontSize: '1.75rem',
+        fontSize: "1.75rem",
       },
       body1: {
-        fontSize: '1rem'
+        fontSize: "1rem",
       },
       body2: {
-        fontSize: '1rem'
+        fontSize: "1rem",
       },
       subtitle1: {
-        fontSize: '1rem'
+        fontSize: "1rem",
       },
       subtitle2: {
-        fontSize: '1rem'
-      }
+        fontSize: "1rem",
+      },
     },
     palette: {
       contrastThreshold: 4.5,
@@ -72,5 +71,8 @@ export const ThemeFactory = (props: any) =>
         easeIn: "cubic-bezier(0.4, 0, 1, 1)",
         sharp: "cubic-bezier(0.4, 0, 0.6, 1)",
       },
+    },
+    components: {
+      MuiTableCell: MuiTableCell,
     },
   });

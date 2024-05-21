@@ -66,8 +66,9 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
   };
 
   const handleAddToCart = (id: string) => {
-
-  }
+    const book = books.filter((book: BookType) => book.id === id)[0];
+    dispatch(setShoppingCartItem(book));
+  };
 
   return (
     <Grid item className="w-full max-w-4xl p-2 border-2 border-white rounded-lg border-solid " sx={{ margin: "0 auto", marginBottom: "1rem" }}>

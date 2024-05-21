@@ -1,23 +1,24 @@
 import React from "react";
 import { hydrateRoot } from 'react-dom/client';
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { createRoot } from "react-dom/client";
+import rootReducer from '../app/combinedReducers';
+import { BrowserRouter } from "react-router-dom";
 import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
-import dataReducer from "../src/features/Books/Books.Slice";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import { ThemeFactory } from "../src/styles/ThemeFactory/ThemeFacrory";
 import createEmotionCache from "./styles/createEmotionCache";
+import "./index.css";
 import App from "./App";
+
 interface CustomWindow extends Window {
   __PRELOADED_STATE__: any;
 }
 
 const customWindow = window as unknown as CustomWindow;
 
-const store = createStore(dataReducer, customWindow.__PRELOADED_STATE__);
+const store = createStore(rootReducer, customWindow.__PRELOADED_STATE__);
 const cache = createEmotionCache();
 
 delete customWindow.__PRELOADED_STATE__;
