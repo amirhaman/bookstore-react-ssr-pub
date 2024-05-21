@@ -43,6 +43,7 @@ server.get("/*", (req, res) => {
   const emotionCss = constructStyleTagsFromChunks(emotionChunks);
 
   const fullHtml = `
+  <!DOCTYPE html>
   <html lang="en" id="app">
   <head>
     <title>Redux Universal Example</title>
@@ -51,7 +52,7 @@ server.get("/*", (req, res) => {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      rel="stylesheet"
+      rel="preconnect"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
     />
   </head>

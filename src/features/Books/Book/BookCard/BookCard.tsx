@@ -93,27 +93,27 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
           {allowEdit ? (
             editMode ? (
               <Box>
-                <ButtonComponent id="save-changes" variant="outlined" color="success" onClick={() => handleFinalBookEdit(id)}>
+                <ButtonComponent id={`save-changes-${id}`} variant="outlined" color="success" onClick={() => handleFinalBookEdit(id)}>
                   Save Changes
                 </ButtonComponent>
-                <ButtonComponent id="cancel" variant="outlined" color="primary" onClick={() => setEditMode(false)}>
+                <ButtonComponent id={`cancel-${id}`} variant="outlined" color="primary" onClick={() => setEditMode(false)}>
                   Cancel
                 </ButtonComponent>
               </Box>
             ) : (
               <>
-                <ButtonComponent id="edit-book" variant="outlined" color="primary" onClick={() => handlePreBookEdit()}>
+                <ButtonComponent id={`edit-book-${id}`} variant="outlined" color="primary" onClick={() => handlePreBookEdit()}>
                   Edit Book
                 </ButtonComponent>
-                <BookDelete id="delete-book" action="delete" label="Delete Book" variant="outlined" color="warning" onClick={() => handleFinalBookDelete(id)} />
+                <BookDelete id={`delete-book-${id}`} action="delete" label="Delete Book" variant="outlined" color="warning" onClick={() => handleFinalBookDelete(id)} />
               </>
             )
           ) : (
             <>
-              <ButtonComponent id="view-book" variant="contained" color="primary" onClick={() => navigateToSingleBook(id)}>
+              <ButtonComponent id={`view-book-${id}`} variant="contained" color="primary" onClick={() => navigateToSingleBook(id)}>
                 View Book
               </ButtonComponent>
-              <ButtonComponent id="add-book-to-cart" variant="contained" color="primary" onClick={() => handleAddToCart(id)}>
+              <ButtonComponent id={`add-book-to-cart-${id}`} variant="contained" color="primary" onClick={() => handleAddToCart(id)}>
                 Add to Cart
               </ButtonComponent>
             </>
