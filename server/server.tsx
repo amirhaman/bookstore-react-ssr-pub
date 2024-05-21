@@ -1,28 +1,27 @@
-import express from 'express';
-import { StaticRouter } from 'react-router-dom/server';
-import path from 'path';
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
-import fs from 'fs';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import { CacheProvider } from '@emotion/react';
-import { Provider } from 'react-redux';
-import dataReducer from '../src/features/Books/Books.Slice';
-import createEmotionServer from '@emotion/server/create-instance';
-import createEmotionCache from '../src/styles/createEmotionCache';
-import { ThemeFactory } from '../src/styles/ThemeFactory/ThemeFacrory';
-import { legacy_createStore as createStore } from 'redux';
-import App from '../src/App';
+import express from "express";
+import { StaticRouter } from "react-router-dom/server";
+import path from "path";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import { CacheProvider } from "@emotion/react";
+import { Provider } from "react-redux";
+import rootReducer from "../app/combinedReducers";
+import createEmotionServer from "@emotion/server/create-instance";
+import createEmotionCache from "../src/styles/createEmotionCache";
+import { ThemeFactory } from "../src/styles/ThemeFactory/ThemeFacrory";
+import { legacy_createStore as createStore } from "redux";
+import App from "../src/App";
 
 const server = express();
 
-server.use('/static', express.static(path.join(__dirname, 'static')));
+server.use("/static", express.static(path.join(__dirname, "static")));
 
-server.get('/*', (req, res) => {
+server.get("/*", (req, res) => {
   const cache = createEmotionCache();
   const { extractCriticalToChunks, constructStyleTagsFromChunks } = createEmotionServer(cache);
-  const store: any = createStore(dataReducer);
+  const store: any = createStore(rootReducer);
 
   const html = ReactDOMServer.renderToString(
     <CacheProvider value={cache}>
@@ -65,7 +64,7 @@ server.get('/*', (req, res) => {
       const htmlContent = "${encodeURIComponent(html)}";
       rootElement.innerHTML = decodeURIComponent(htmlContent);
 
-      window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
+      window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, "\\u003c")}
     </script>
     <script type="text/javascript" src="/static/bundle.js"></script>
   </body>

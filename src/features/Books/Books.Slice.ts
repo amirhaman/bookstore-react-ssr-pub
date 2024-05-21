@@ -1,37 +1,35 @@
-import { PayloadAction, current } from '@reduxjs/toolkit';
-import { BookType } from '../../types/@types.book';
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, current } from "@reduxjs/toolkit";
+import { BookType } from "../../types/@types.book";
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface BookState {
-  books: BookType[]
+  books: BookType[];
 }
 
 const initialState: BookState = {
-  books: []
-}
+  books: [],
+};
 
-
-const dataSlice = createSlice({
-  name: 'books',
+const booksSlice = createSlice({
+  name: "booksReducer",
   initialState: initialState,
   reducers: {
-    setBooks: (state : any, action: PayloadAction<BookState>) => {
-      return state = action.payload;
+    setBooks: (state: any, action: PayloadAction<BookState>) => {
+      state.books = action.payload.books;
+      return state;
     },
-    updateBook: (state : any, action: PayloadAction<BookState>) => {
-      const books = current(state);
-      const index = books.books.findIndex((item: BookType) => item.id === action.payload.books[0].id);
+    updateBook: (state: any, action: PayloadAction<BookState>) => {
+      const index = state.books.findIndex((item: BookType) => item.id === action.payload.books[0].id);
       if (index !== -1) {
         state.books[index] = action.payload.books[0];
-        return state;
       }
-
-    }
-  }
+      return state;
+    },
+  },
 });
 
-export const { setBooks, updateBook } = dataSlice.actions;
+export const { setBooks, updateBook } = booksSlice.actions;
 
-export const selectBooks = (state: any) => state.books
+export const selectBooks = (state: any) => state.booksReducer.books;
 
-export default dataSlice.reducer
+export default booksSlice.reducer;
