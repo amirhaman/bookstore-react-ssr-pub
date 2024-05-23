@@ -2,3 +2,5 @@
 /dist
 dev.js
 .vscode
+
+*storybook.log
