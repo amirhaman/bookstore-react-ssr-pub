@@ -16,16 +16,16 @@ const themeBase = createTheme({
   palette: {
     contrastThreshold: 4.5,
     primary: {
-      main: "#2E4F4F",
+      main: "#FFFFFF",
       light: "#4E8D7C",
       dark: "#4E8D7C",
-      contrastText: "#FFFFFF",
+      contrastText: "#2E4F4F",
     },
     secondary: {
-      main: "#FFFFFF",
+      main: "#ccffff",
       light: "#0059b3",
       dark: "#003366",
-      contrastText: "#ccffff",
+      contrastText: "#2E4F4F",
     },
     background: {
       default: "#2C3333",

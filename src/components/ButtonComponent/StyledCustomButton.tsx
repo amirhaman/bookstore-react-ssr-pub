@@ -11,7 +11,6 @@ const CustomButtonStyledComponent = muiStyled(Button, {
 })(({ theme, color, variant, type, disabled }) => ({
   fontWeight: 'bold',
   minWidth: 'auto',
-  margin: '0.5rem',
   ...(color === "success" && {
     '&.MuiButton-root': {
       backgroundColor: '#00a152',
@@ -35,14 +34,14 @@ const CustomButtonStyledComponent = muiStyled(Button, {
   }),
   ...(color === 'primary'
     ? {
-        color: theme.palette.primary.contrastText,
+        color: theme.palette.primary.main,
         backgroundColor: theme.palette.background.default,
         ...(variant === 'outlined'
           ? {
               backgroundColor: theme.palette.background.default,
               background: theme.palette.background.default,
               border: '2px solid',
-              borderColor: theme.palette.primary.contrastText,
+              borderColor: theme.palette.primary.main,
               padding: '4px 8px',
             }
           : variant === 'contained'
@@ -56,12 +55,12 @@ const CustomButtonStyledComponent = muiStyled(Button, {
       }
     : color === 'secondary'
       ? {
-          color: theme.palette.secondary.contrastText,
+          color: theme.palette.secondary.main, 
           ...(variant === 'outlined'
             ? {
                 backgroundColor: theme.palette.background.default,
                 border: '2px solid',
-                borderColor: theme.palette.secondary.contrastText,
+                borderColor: theme.palette.secondary.main,
               }
             : variant === 'contained'
               ? {

@@ -13,41 +13,41 @@ const StyledCustomGlobalField = muiStyled(FormControl, {
   width: "100%",
   // minHeight: "40px",
   margin: "10px 0",
-  color: `${theme.palette.primary.contrastText}`,
+  color: `${theme.palette.primary.main}`,
   backgroundColor: theme.palette.background.default,
   ...(variant !== "standard" && {
-    border: `0.08rem solid ${theme.palette.primary.contrastText}`,
+    border: `0.08rem solid ${theme.palette.primary.main}`,
   }
   ),
   label: {
-    color: `${theme.palette.primary.contrastText} !important`,
+    color: `${theme.palette.primary.main} !important`,
     backgroundColor: theme.palette.background.default,
     marginLeft: "-6px",
     padding: "0 6px",
     borderRadius: "6px",
     zIndex: 2,
     '& .Mui-focused, & span, & .MuiTypography-root':{
-      color: theme.palette.primary.contrastText,
+      color: theme.palette.primary.main,
     },
   },
   input : {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.primary.main,
     '&:-webkit-autofill': {
       transition: 'background-color 5000s ease-in-out 0s',
-      WebkitTextFillColor: theme.palette.primary.contrastText,
+      WebkitTextFillColor: theme.palette.primary.main,
     },
   },
   textarea: {
-    color: theme.palette.primary.contrastText,
+    color: theme.palette.primary.main,
     backgroundColor: theme.palette.background.default,
     zIndex: 1,
     '&.Mui-focused': {
-      color: theme.palette.primary.contrastText,
+      color: theme.palette.primary.main,
     }
   },
 
   '& .MuiButtonBase-root, & .MuiFormControl-root, & .MuiSvgIcon-root, & .MuiSelect-select, & .MuiInputBase-root' : {
-    color: `${theme.palette.primary.contrastText}`,
+    color: `${theme.palette.primary.main}`,
     '&.has-error': {
       border: `0.07em solid red !important`
     },

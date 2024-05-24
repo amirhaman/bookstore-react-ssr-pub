@@ -13,9 +13,6 @@ module.exports = {
       lg: '976px',
       xl: '1440px',
     },
-    colors: {
-      'blue': '#1fb6ff',
-    },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],

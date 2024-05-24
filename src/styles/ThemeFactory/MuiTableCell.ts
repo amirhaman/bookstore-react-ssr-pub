@@ -6,6 +6,7 @@ const MuiTableCell: Components<Theme>["MuiTableCell"] = {
       transition: theme.transitions.create(['color', 'transform'], {
         duration: 1000,
       }),
+      color: theme.palette.primary.main,
       background: theme.palette.background.default
     }),
   },
