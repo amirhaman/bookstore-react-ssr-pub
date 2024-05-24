@@ -9,6 +9,7 @@ import { useAppSelector, useAppDispatch } from "../../../../../app/hooks";
 import { selectBooks } from "../../Books.Slice";
 import { setBooks, updateBook } from "../../Books.Slice";
 import { setShoppingCartItem } from "../../../ShoppingCart/ShoppingCart.Slice";
+import StyledBookCard from "./StyledBookCard";
 
 interface Props extends BookType {
   allowEdit: boolean;
@@ -71,7 +72,7 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
   };
 
   return (
-    <Grid item className="w-full max-w-4xl p-2 border-2 border-white rounded-lg border-solid " sx={{ margin: "0 auto", marginBottom: "1rem" }}>
+    <StyledBookCard item className="w-full max-w-4xl p-2 border-2 rounded-lg border-solid " sx={{ margin: "0 auto", marginBottom: "1rem" }}>
       <Grid container className="w-full">
         <Grid item className="w-full">
           <BookTextField editMode={editMode} variant="h1" type="text" name="name" value={name} updatedValue={updatedFields.name} label="Name" handleFieldChangeReducer={(e: React.ChangeEvent<HTMLInputElement>) => handleFieldChangeReducer(e, "name")} />
@@ -93,7 +94,7 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
           {allowEdit ? (
             editMode ? (
               <Box>
-                <ButtonComponent id={`save-changes-${id}`} variant="outlined" color="success" onClick={() => handleFinalBookEdit(id)}>
+                <ButtonComponent className="mr-2" id={`save-changes-${id}`} variant="outlined" color="success" onClick={() => handleFinalBookEdit(id)}>
                   Save Changes
                 </ButtonComponent>
                 <ButtonComponent id={`cancel-${id}`} variant="outlined" color="primary" onClick={() => setEditMode(false)}>
@@ -102,7 +103,7 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
               </Box>
             ) : (
               <>
-                <ButtonComponent id={`edit-book-${id}`} variant="outlined" color="primary" onClick={() => handlePreBookEdit()}>
+                <ButtonComponent className="mr-2" id={`edit-book-${id}`} variant="outlined" color="primary" onClick={() => handlePreBookEdit()}>
                   Edit Book
                 </ButtonComponent>
                 <BookDelete id={`delete-book-${id}`} action="delete" label="Delete Book" variant="outlined" color="warning" onClick={() => handleFinalBookDelete(id)} />
@@ -110,17 +111,17 @@ const BookCard = ({ id, name, price, category, description, allowEdit }: Props) 
             )
           ) : (
             <>
-              <ButtonComponent id={`view-book-${id}`} variant="contained" color="primary" onClick={() => navigateToSingleBook(id)}>
+              <ButtonComponent className="mr-2" id={`view-book-${id}`} variant="outlined" color="primary" onClick={() => navigateToSingleBook(id)}>
                 View Book
               </ButtonComponent>
-              <ButtonComponent id={`add-book-to-cart-${id}`} variant="contained" color="primary" onClick={() => handleAddToCart(id)}>
+              <ButtonComponent id={`add-book-to-cart-${id}`} variant="outlined" color="primary" onClick={() => handleAddToCart(id)}>
                 Add to Cart
               </ButtonComponent>
             </>
           )}
         </Grid>
       </Grid>
-    </Grid>
+    </StyledBookCard>
   );
 };
 

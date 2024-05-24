@@ -3,6 +3,7 @@ import MuiTableCell from "./MuiTableCell";
 
 export const ThemeFactory = (props: any) =>
   createTheme({
+    name: props.name,
     typography: {
       fontFamily: `"Roboto", "Helvetica", "Arial", sans-serif`,
       h1: {
@@ -39,20 +40,20 @@ export const ThemeFactory = (props: any) =>
     palette: {
       contrastThreshold: 4.5,
       primary: {
-        main: "#3b3b3b",
-        light: "#a8a8a8",
-        dark: "yellow",
-        contrastText: "#3b3b3b",
+        main: props.palette.primary.main,
+        light: props.palette.primary.light,
+        dark: props.palette.primary.dark,
+        contrastText: props.palette.primary.contrastText,
       },
       secondary: {
-        main: "#3b3b3b",
-        light: "#a8a8a8",
-        dark: "yellow",
-        contrastText: "#3b3b3b",
+        main: props.palette.secondary.main,
+        light: props.palette.secondary.light,
+        dark: props.palette.secondary.dark,
+        contrastText: props.palette.secondary.contrastText,
       },
       background: {
-        default: "white",
-        paper: "gray",
+        default: props.palette.background.default,
+        paper: props.palette.background.paper,
       },
     },
     transitions: {

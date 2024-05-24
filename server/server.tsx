@@ -4,14 +4,12 @@ import { StaticRouter } from "react-router-dom/server";
 import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
+import ThemeCustomModeProvider from "../src/styles/ThemeContext";
 import { CacheProvider } from "@emotion/react";
 import { Provider } from "react-redux";
 import rootReducer from "../app/combinedReducers";
 import createEmotionServer from "@emotion/server/create-instance";
 import createEmotionCache from "../src/styles/createEmotionCache";
-import { ThemeFactory } from "../src/styles/ThemeFactory/ThemeFacrory";
 import { legacy_createStore as createStore } from "redux";
 import App from "../src/App";
 
@@ -27,15 +25,14 @@ server.get("/*", (req, res) => {
 
   const html = ReactDOMServer.renderToString(
     <CacheProvider value={cache}>
-      <ThemeProvider theme={ThemeFactory}>
-        <CssBaseline />
-        <Provider store={store}>
+      <ThemeCustomModeProvider>
+      <Provider store={store}>
           {/* @ts-ignore */}
           <StaticRouter location={req.url} context={{}}>
             <App />
           </StaticRouter>
         </Provider>
-      </ThemeProvider>
+      </ThemeCustomModeProvider>
     </CacheProvider>
   );
 

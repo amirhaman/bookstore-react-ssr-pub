@@ -16,10 +16,10 @@ const Theme = createTheme({
   palette: {
     contrastThreshold: 4.5,
     primary: {
-      main: "#D8E3E7",
+      main: "#2E4F4F",
       light: "#F5F5F5",
       dark: "#EFEFEF",
-      contrastText: "#2E4F4F",
+      contrastText: "#D8E3E7",
     },
     secondary: {
       main: "#666699",
@@ -29,7 +29,7 @@ const Theme = createTheme({
     },
     background: {
       default: "#D8E3E7",
-      paper: "#F5F5F5"
+      paper: "#F5F5F5",
     },
   },
   

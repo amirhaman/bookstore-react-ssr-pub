@@ -59,8 +59,8 @@ export const BookCreate = () => {
   };
 
   return (
-    <Box className="max-w-4xl m-auto">
-      <ButtonComponent className="mr-4" id="create-book" variant="outlined" color="success" onClick={handleOpen}>
+    <Box className="max-w-4xl m-auto mr-2">
+      <ButtonComponent className="" id="create-book" variant="outlined" color="success" onClick={handleOpen}>
         Create Book
       </ButtonComponent>
       <ModalComponent open={createModalStatus} onClose={handleClose} ariaLabelledBy="modal-book-confirm-action" ariaDescribedBy="modal-book-confirm-action">
