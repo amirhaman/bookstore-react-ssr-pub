@@ -1,9 +1,12 @@
 module.exports = {
-  important: '#app',
+  important: true,
   mode: 'jit',
   content: [
     './src/components/**/*.{js,jsx,ts,tsx}',
     './src/features/**/*.{js,jsx,ts,tsx}',
+    "./.storybook/**/*.{js,jsx,ts,tsx}",
+    "../src/stories/**/*.stories.mdx",
+    "../src/stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   darkMode: "media",
   theme: {

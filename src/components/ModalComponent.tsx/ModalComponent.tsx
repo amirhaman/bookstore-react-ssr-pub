@@ -8,7 +8,7 @@ type Props = {
   onClose: () => void;
   ariaLabelledBy: string;
   ariaDescribedBy: string;
-  children: React.JSX.Element
+  children: React.ReactNode
 }
 
 export const ModalComponent = ({open, onClose, ariaLabelledBy, ariaDescribedBy, children}: Props ) => {
