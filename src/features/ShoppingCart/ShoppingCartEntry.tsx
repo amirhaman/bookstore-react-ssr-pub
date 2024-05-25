@@ -59,7 +59,7 @@ export default function ShoppingCartEntry() {
         <ShoppingCartIcon
           className="cursor-pointer"
           color="primary"
-          style={{ fontSize: '35px' }}
+          style={{ fontSize: '30px' }}
           onClick={() => handleShoppingCartModal()}></ShoppingCartIcon>
       </ButtonComponent>
     </Box>
