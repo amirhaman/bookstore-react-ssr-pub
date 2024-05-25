@@ -12,6 +12,6 @@
     "strict": true,
     "strictNullChecks": true,
     "noImplicitAny": false,
-    
-  }
+  },
+  "exclude": ["node_modules", "src/stories/components/*.stories.tsx", "src/**/*.test.tsx"]
 }

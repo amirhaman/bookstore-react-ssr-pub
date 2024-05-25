@@ -65,7 +65,7 @@ export const BookCreate = () => {
       </ButtonComponent>
       <ModalComponent open={createModalStatus} onClose={handleClose} ariaLabelledBy="modal-book-confirm-action" ariaDescribedBy="modal-book-confirm-action">
         <Box className="max-w-4xl h-full flex flex-col justify-center items-center m-auto">
-          <Typography variant="h1" component="h1">Add a new book.</Typography>
+          <Typography variant="h1" component="h1" color="primary">Add a new book.</Typography>
           <Grid container className="w-full">
             <Grid item className="w-full">
               <BookTextField editMode={true} variant="h1" type="text" name="name" value={updatedFields.name} updatedValue={updatedFields.name} label="Name" handleFieldChangeReducer={(e: React.ChangeEvent<HTMLInputElement>) => handleFieldChangeReducer(e, "name")} />
